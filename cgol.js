@@ -18,7 +18,12 @@ function c (td)
 		for (a=0;a<8;a++)
 			if ((x=td.n[a]) && x[p])
 				count++;
-	}, i=cols*40,a=i,count, x;
+	},
+	getv = function(x)
+	{
+		return (x>=0 && x<life.length) ? life[x] : 0;
+	},
+	i=cols*40,a=i,count, x;
 	
 	// Generate Table
 	while (a--)
@@ -27,8 +32,8 @@ function c (td)
 	life = life.children;
 
 	while (i--)
-		life[i].n = [ life[i-cols-1], life[i-cols], life[i-cols+1], 
-			      life[i-1], life[i+1], life[i+cols-1], life[i+cols], life[i+cols+1]
+		life[i].n = [ getv(i-cols-1), getv(i-cols), getv(i-cols+1), 
+			      getv(i-1), getv(i+1), getv(i+cols-1), getv(i+cols), getv(i+cols+1)
 			    ];
 
 
