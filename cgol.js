@@ -1,6 +1,4 @@
-e=eval;
-p='className';
-q=1;
+var e=eval,p='className',q=1, g;
 
 function c (td)
 {
