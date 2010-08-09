@@ -1,4 +1,4 @@
-var e=eval,p='className',q=1, g;
+var e=eval,p='className',q=0;
 
 function c (td)
 {
@@ -9,7 +9,7 @@ function c (td)
 {
 	var
 	    cols = 50,
-	    life = document.getElementById('w'),
+	    life = w, //document.getElementById('w'),
 	    td='',
 	
 	get_neighbours = function()
@@ -21,9 +21,9 @@ function c (td)
 	},
 	getv = function(x)
 	{
-		return (x>=0 && x<life.length) ? life[x] : 0;
+		return (x>=0 && x<len) ? life[x] : 0;
 	},
-	i=cols*40,a=i,count, x;
+	i=cols*40,a=i,count, x,ev,len=i;
 	
 	// Generate Table
 	while (a--)
@@ -41,20 +41,22 @@ function c (td)
 
 	window.g = function(button)
 	{
-		if (q%2) return;
+		if (q%2)
+		{
+			for (i=0,ev='';i<len;i++)
+			{
+				get_neighbours(td=life[i]);
+				if (count!=2)
+				{
+					if (count==3) ev+= td[p] ? '' : 's('+i+',"s");'; 
+					else
+						if (td[p]) ev+='s('+i+',"");'; 
+				}
+			}
 
-		var ev='';
-		for (i=0;i<2000;i++)
-			switch (get_neighbours(td=life[i]), count)
-			{ 
-			case 3: if (!td[p]) ev+='s('+i+',"s");';
-			case 2: break;
-			default:
-				if (td[p]) ev+='s('+i+',"");'; 
-			}					
-
-		e(ev);
-		setTimeout(window.g, 250);
+			e(ev);
+			setTimeout(window.g, 250);
+		}
 	}
 	
 })(this)
