@@ -11,7 +11,7 @@ JS = 'js'
 
 desc "Minify script"
 task :minify do
-	`#{JAVA} -jar ../j5g3/tools/yuicompressor.jar -v #{SRC} -o #{MINOUTPUT}`	
+	`#{JAVA} -jar tools/yuicompressor.jar -v #{SRC} -o #{MINOUTPUT}`	
 	puts MINOUTPUT + ': ' + File.size(MINOUTPUT).to_s
 	puts "html: " + File.size('index.html').to_s
 	puts "total: " + (File.size(MINOUTPUT) + File.size('index.html')).to_s
