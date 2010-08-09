@@ -1,5 +1,6 @@
 e=eval;
 p='className';
+q=1;
 
 function c (td)
 {
@@ -35,8 +36,10 @@ function c (td)
 
 	window.s = function(i, s) { life[i][p]=s; }
 
-	window.g = function()
+	window.g = function(button)
 	{
+		if (q%2) return;
+
 		var ev='';
 		for (i=0;i<2000;i++)
 			switch (get_neighbours(td=life[i]), count)
