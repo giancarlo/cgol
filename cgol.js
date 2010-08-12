@@ -7,6 +7,8 @@ function c (td)
 
 (function(window)
 {
+	document.write('<button onclick="q++; g(this)">Start/Stop</button><style>b:hover{background:#ccc;}b{height:20px;width:20px;display:inline-block;border-radius:6px;}b.s{background:#000;}#w{width:1000px;border:1px solid black;}</style><div id="w"/>');
+
 	var
 	    cols = 50,
 	    life = w, //document.getElementById('w'),
@@ -58,5 +60,6 @@ function c (td)
 			setTimeout(window.g, 250);
 		}
 	}
+
 	
 })(this)
